@@ -1,0 +1,190 @@
+﻿{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+        Alone's blog
+{% endblock %}
+
+{% block mycss %}
+<link href="{% static 'css/info.css' %}" rel="stylesheet">
+    <style>
+    .pl-post {
+    border-radius: 30px;
+    background: #f7f7f7;
+    padding: 10px;
+    box-shadow: inset 2px 2px 20px rgba(0,0,0,.08);
+    position: relative;
+
+}
+    .pl-post-word {
+    border: none;
+    background: none;
+    outline: none;
+    width: 100%;
+    display: block;
+    height: 80px;
+    line-height: 22px;
+    font-size: 14px;
+    background-attachment: scroll;
+    resize: none;
+    padding: 0;
+
+}
+        .sidenav{
+            height:100%;
+            width:0;
+            position:fixed;
+            left: 0;
+            top:60px;
+            background-color:rgba(255,255,255,0.8);
+            overflow-x: hidden;
+            padding-top: 60px;
+            transition: 0.5s;
+        }
+        .sidenav a{
+            padding:8px 8px 8px 32px;
+            text-decoration: none;
+            font-size:25px;
+            display: block;
+            color:#818181;
+        }
+        .sidenav a:hover{
+            color:#f1f1f1;
+        }
+        .sidenav .closebtn{
+            position: absolute;
+            top:0;
+            right: 25px;
+            font-size:36px;
+        }
+    </style>
+{% endblock %}
+
+{% block myjs %}
+<script src="{% static 'js/jquery.min.js' %}" type="text/javascript"></script>
+        <script>
+        // 点赞函数
+        function hello()    //创建函数
+        {
+            window.alert("感谢支持！！！");    //弹出窗口
+        }
+        // 评论函数
+        $(function () {
+            // 得到按钮对象
+            $('#btncomment').click(function () {
+                //从文本框中取值
+                var nickname = $('#uname').val();
+                var saytext = $('#saytext').val();
+                //发出请求
+                $.getJSON('{% url 'article:comment' %}', {
+                    nickname: nickname,
+                    saytext: saytext,
+                    aid: '{{ article.id }}'
+                }, function (data) {
+                    if(data.status==1){
+                        window.location.href='{% url 'article:detail' %}?id={{ article.id }}'
+                    }
+                })
+            });
+        });
+        function openNav() {
+            document.getElementsByClassName('sidenav')[0].style.width = '250px';
+            document.getElementById('main').style.marginLeft = '250px';
+            document.body.style.backgroundColor = 'rgba(0,0,0,0.4)';
+        }
+        function closeBtn() {
+            document.getElementsByClassName('sidenav')[0].style.width = '0';
+            document.getElementById('main').style.marginLeft = '0';
+            document.body.style.backgroundColor = '#fff';
+        }
+
+
+    </script>
+{% endblock %}
+
+{% block toc %}
+           <div class="sidenav">
+    <a href="#" class="closebtn" onclick="closeBtn();">&times</a>
+    <a href="#">{{ toc|safe }}</a>
+</div >
+
+    <div id="main" style="transition: margin-left .5s;padding:16px;position: absolute;top: 80px;color: #1da7ee">
+    <h2>目录</h2>
+    <span style="font-size: 30px;cursor:pointer;" onclick="openNav();">&#9776;OPEN</span>
+</div>
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+<article style="background-color:rgba(255,255,255,0.8);">
+
+    <div class="newsview" >
+      <h3 class="news_title" style="font-size: 40px">{{ article.title }}</h3>
+      <div class="bloginfo" style="font-size: 20px">
+        <ul>
+          <li class="author">作者：<a href="{% url 'user:center' %}">{{ article.user.username }}</a></li>
+          <li class="timer">时间：{{ article.date }}</li>
+          <li class="view">{{ article.click_num }}人已阅读</li>
+        </ul>
+      </div>
+    <div class="tags" style="font-size: 23px">
+        {% for tag in article.tag.all %}
+         <a href="/" target="_blank">{{ tag.name }}</a>
+         {% endfor %}
+    </div>
+      <div class="news_about" style="font-size: 20px"><strong style="font-size: 20px">简介:</strong>{{ article.desc }}</div>
+      <div class="news_con" style="font-size: 20px">
+{#          使用过滤器，防止html语法转义#}
+            {{ article.content | safe }}
+        &nbsp; </div>
+    </div>
+    <div class="share" >
+      <p class="diggit"><a href="{% url 'article:detail' %}?id={{ article.id }}" onclick="hello()"> 很赞哦！ {{ article.love_num }}</a></p>
+    </div>
+    <div class="nextinfo" style="font-size: 18px">
+        <p>下一篇：<a href="{% url 'article:detail' %}?id={{ art.id }}">{{ art.title }}</a></p>
+    </div>
+    <div class="nextinfo">
+        <h2>相关文章</h2>
+    &nbsp;
+        <ul style="font-size: 18px">
+            {% for artcileabout in list_about %}
+                <li><a href="{% url 'article:detail' %}?id={{ artcileabout.id }}"
+                       title="{{ artcileabout.title }}">#  {{ artcileabout.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="news_pl">
+        <h2 style="font-size: 25px">文章评论<font style="position: relative;left: 650px; font-weight:normal;color: #FF8151">共有{{ comments.count }}条留言</font></h2>
+        {% for comment in comments %}
+            <div style="border:2px solid ; ">
+                <li style="font-size: 25px">
+                    <p><span>{{ comment.nickname }}:</span> <span style="position: relative;left: 700px;font-size: 15px">{{ comment.date }}</span></p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <p >&nbsp;&nbsp;{{ comment.content }}</p>
+                    &nbsp;&nbsp;&nbsp;
+                </li>
+            </div>
+        {% endfor %}
+      <ul>
+        <div class="gbko">
+             <div class="pl-post" >
+                 <textarea name="saytext" id="saytext" class="pl-post-word" placeholder="写下你想说的，开始我们的对话" style="left: 500px;height: 250px"></textarea>
+                             <div style="position: relative;left:700px;z-index: 90000;">
+                <p><input type="text" required name="uname" id="uname" placeholder="  你的昵称" style="height: 40px;border-radius: 30px;">
+                 </p><p><input type="submit" value="评论" id='btncomment' style="font-size: 25px;border-radius: 15px;color: white;background-color:#888;position: relative;left: 90px"></p>
+            </div>
+             </div>
+        </div>
+      </ul>
+    </div>
+{#  </div>#}
+</article>
+<a href="#" class="cd-top">Top</a>
+{% endblock %}
+
+
+

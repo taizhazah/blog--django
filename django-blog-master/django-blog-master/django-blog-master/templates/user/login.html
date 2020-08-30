@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+        登录
+    {% endblock %}
+    {% block mycss %}
+        <style>
+    html{
+    height: 100%;
+}
+body{
+    background: url('{% static 'images/bg.jpg' %}') no-repeat center/cover;
+}
+.form{
+    width: 500px;
+    height: 600px;
+    margin: 30px auto;
+}
+.form_register,.form_login{
+    width: 500px;
+    background-color:rgba(0, 188, 212, 0.7);
+    border-radius: 5px;
+    box-shadow: 0 0 3px #ccc;
+    overflow: hidden;
+    transition: height 1s;
+}
+.form_register{
+    height: 548px;
+}
+
+.form form{
+   padding: 25px 40px;
+}
+.form .form_item{
+    display: flex;
+    margin: 25px 0;
+    vertical-align: middle;
+}
+.form input{
+    outline: none;
+    text-indent: 10px;
+    flex: 1;
+    width: auto;
+    border: none;
+    border-radius: 3px;
+    height: 36px;
+}
+.form form label{
+    width: 90px;
+    float: left;
+    line-height: 36px;
+}
+h1{
+    text-align: center;
+    padding: 0;;
+    margin: 30px 0 30px 0;
+}
+.form form input[type='submit']{
+    background-color: rgba(244, 22, 7, 0.7);
+    color: aliceblue;
+    height: 45px;
+    font-size: 20px;
+    cursor:pointer;
+    margin-top: 20px;
+}
+.form .info{
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.form .info span{
+    color: crimson;
+    margin-left: 3px;
+}
+.form .info span:hover{
+    cursor: pointer;
+    border-bottom: 1px solid crimson;
+
+}
+
+</style>
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="form" style="position:relative">
+
+
+		<!--登录表单-->
+        <div class="form_login" style="position:absolute">
+
+			<form action="{% url 'user:login' %}" method="post">{% csrf_token %}
+				<h1>立即登录</h1>
+                <p style="color: #F4650E">{{ msg }}</p>
+				<div class="form_item">
+					<label for="username">用户名：</label>
+					<input type="text" name="username" id="username" placeholder="请输入用户名" required>
+				</div>
+				<div class="form_item">
+					<label for="password">密码：</label>
+					<input type="password" name="password" id="password" placeholder="请输入密码名" required>
+				</div>
+
+				<div class="form_item">
+					<input type="submit" value="登录">
+				</div>
+                <span style="    position:absolute;left:35%;top:90%;">
+                    <a href="{% url 'user:forget_pwd' %}"><span>忘记密码？</span></a>
+                    <a href="{% url 'user:register' %}"><span>注册新用户</span></a>
+                </span>
+			</form>
+
+         </div>
+
+    </div>
+{% endblock %}
+
+{% block myjs %}
+    <script>
+    window.onload=function(){
+    var form_login = document.querySelector('.form_login')
+    var form_register = document.querySelector('.form_register')
+    var switchBtns = document.querySelectorAll('.switch')
+
+    switchBtns.forEach(function(item){
+        item.addEventListener('click',function(){
+            if(this.innerText=='注册账号'){
+                addStyle(form_login,{ height: '0',transitionDelay:'0s'})
+                addStyle(form_register,{height: '548px',transitionDelay: '1.2s'})
+            }else if(this.innerText=='登录'){
+                addStyle(form_login,{ height: '422px', transitionDelay: '1.2s'})
+                addStyle(form_register,{height: '0',transitionDelay:'0s'})
+            }
+        })
+    })
+
+    function addStyle(ele,orignStyle){
+        for(var item in orignStyle){
+            if(ele){
+                ele.style[item] = orignStyle[item]
+            }
+        }
+    }
+
+}
+    </script>
+{% endblock %}
+

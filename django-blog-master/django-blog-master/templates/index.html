@@ -1,0 +1,78 @@
+﻿{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+        孙小兜
+    {% endblock %}
+<style>
+
+</style>
+{% block content %}
+<article>
+  <aside>
+    <div class="l_box" id="stickMe">
+
+    <div class="about_me"  >
+        <h2>关于我</h2>
+        <ul>
+          <a href="{% url 'user:center' %}" style=" "> <img src="{{ MEDIA_URL }}{{ user.icon }}" id="icon" style="border-radius: 40px;height: 150px"></a>
+            &nbsp;
+          <div style="background-color: rgba(255,255,255,0);">
+              <p style="font-size: 30px">{{ user.username }}</p>
+              &nbsp;
+              <p style="font-size:20px ">邮箱：{{ user.email }}</p>
+          </div>
+        </ul>
+      </div>
+
+     <div class="tuijian">
+        <h2>点击排行</h2>
+        <ul>
+            {% for c_article in c_articles %}
+          <li><a href="{% url 'article:detail' %}?id={{ c_article.id }}&page={{ c_article.page }}">{{ c_article.title }}</a></li>
+            {% endfor %}
+        </ul>
+      </div>
+      <div class="search">
+        <form action="/e/search/index.php" method="post" name="searchform" id="searchform">
+          <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字词" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">
+          <input name="show" value="title" type="hidden">
+          <input name="tempid" value="1" type="hidden">
+          <input name="tbname" value="news" type="hidden">
+          <input name="Submit" class="input_submit" value="搜索" type="submit">
+        </form>
+      </div>
+        <div class="cloud">
+      <h2>标签云</h2>
+        <ul>
+        {% for tag in tags %}
+         <a href="{% url 'article:list' %}?tid={{ tag.id }}&page=1">{{ tag.name }}</a>
+          {% endfor %}
+        </ul>
+    </div>
+
+      <div class="links">
+        <h2>友情链接</h2>
+        <ul>
+          <a href="http://www.sunxiaodou.icu">孙小兜个人博客</a>
+        </ul>
+      </div>
+    </div>
+  </aside>
+  <div class="r_box" >
+      {% for d_article in d_articles %}
+    <li style="background-color:rgba(255,255,255,0.7);"><i><a href="{{ MEDIA_URL }}{{ d_article.image }}"><img src="{{ MEDIA_URL }}{{ d_article.image }}"></a></i>
+      <h3><a href="{% url 'article:detail' %}?id={{ d_article.id }}">{{ d_article.title }}</a></h3>
+      <p><a href="{% url 'article:detail' %}?id={{ d_article.id }}">{{ d_article.desc }}</a></p>
+{#        使用过滤器对日期进行格式化#}
+
+    <p>{{ d_article.date | date:'Y-m-d H:m:s' }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        点击量:{{ d_article.click_num}}</p>
+    <p></p>
+    </li>
+      {% endfor %}
+  </div>
+<a href="#" class="cd-top">Top</a>
+</article>
+{% endblock %}
+
+

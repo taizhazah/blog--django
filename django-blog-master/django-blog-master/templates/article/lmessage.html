@@ -1,0 +1,44 @@
+﻿{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+        留言
+{% endblock %}
+
+{% block mycss %}
+<link href="{% static 'css/info.css' %}" rel="stylesheet">
+    <style>
+
+    </style>
+{% endblock %}
+
+{% block myjs %}
+<script src="{% static 'js/jquery.min.js' %}" type="text/javascript"></script>
+{% endblock %}
+
+
+
+{% block content %}
+<article style="background-color:rgba(255,255,255,0.8);">
+    <div class="newsview" >
+    <div class="news_pl">
+      <h2 style="font-size: 40px;color: #3FB8AF;font-weight:normal">留言汇总:</h2>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        {% for comment in comments %}
+        <p style="font-size: 25px;color:#FF8151;border-style: none none dashed none">文章标题：<a href="/" style="font-size: 30px;color:#FF8151;">{{ comment.article.title }}</a></p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div style="height: 200px">
+                    <p><span style="font-size: 20px">{{ comment.nickname }}:</span> <span style="position: relative;left: 700px;font-size: 15px">{{ comment.date | date:'Y-m-d H:m:s'}}</span></p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <p >&nbsp;&nbsp;{{ comment.content }}</p>
+                    &nbsp;&nbsp;&nbsp;
+            </div>
+                    {% endfor %}
+
+    </div>
+  </div>
+</article>
+<a href="#" class="cd-top">Top</a>
+{% endblock %}
+
+
+

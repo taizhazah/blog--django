@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+        忘记密码
+    {% endblock %}
+    {% block mycss %}
+        <style>
+    html{
+    height: 100%;
+}
+body{
+    background: url('{% static 'images/bg.jpg' %}') no-repeat center/cover;
+}
+.form{
+    width: 500px;
+    height: 600px;
+    margin: 30px auto;
+}
+.form_register,.form_login{
+    width: 500px;
+    background-color:rgba(0, 188, 212, 0.7);
+    border-radius: 5px;
+    box-shadow: 0 0 3px #ccc;
+    overflow: hidden;
+    transition: height 1s;
+}
+.form_register{
+    height: 548px;
+}
+
+.form form{
+   padding: 25px 40px;
+}
+.form .form_item{
+    display: flex;
+    margin: 25px 0;
+    vertical-align: middle;
+}
+.form input{
+    outline: none;
+    text-indent: 10px;
+    flex: 1;
+    width: 300px;
+    border: none;
+    border-radius: 3px;
+    height: 36px;
+}
+.form form label{
+    width: 90px;
+    float: left;
+    line-height: 36px;
+}
+h1{
+    text-align: center;
+    padding: 0;;
+    margin: 30px 0 30px 0;
+}
+.form form input[type='submit']{
+    background-color: rgba(244, 22, 7, 0.7);
+    color: aliceblue;
+    height: 45px;
+    font-size: 20px;
+    cursor:pointer;
+    margin-top: 20px;
+}
+.form .info{
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.form .info span{
+    color: crimson;
+    margin-left: 3px;
+}
+.form .info span:hover {
+    cursor: pointer;
+    border-bottom: 1px solid crimson;
+
+}
+
+</style>
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="form" style="position:relative">
+
+
+		<!--登录表单-->
+        <div class="form_login" style="position:absolute">
+
+			<form action="{% url 'user:forget_pwd' %}" method="post">{% csrf_token %}
+				<h1>密码找回</h1>
+
+                <label for="email">邮箱：</label>
+                <div style="">
+                {{ form.email }}
+                </div>
+                &nbsp;&nbsp;&nbsp;
+                <label for="captcha">验证码：</label>
+                <div style="position: relative;left: 90px;height: 100px">
+                {{ form.captcha }}
+                </div>
+                <p style="color: #F4650E">{{ msg }}</p>
+				<div class="form_item">
+					<input type="submit" value="找回密码">
+				</div>
+			</form>
+
+         </div>
+
+    </div>
+{% endblock %}
+
+{% block myjs %}
+    <script>
+    {#通过视图函数传递过来的json，用来判断验证码是否正确，并做出相应响应#}
+      $(function(){
+          // 刷新动作
+        $('.captcha').click(function(){
+            var img= $(this);
+           $.getJSON('/captcha/refresh',function(data){
+               console.log(data)
+               img.attr('src',data['image_url']);
+               $('#id_captcha_0').val(data['key'])
+           })
+        });
+
+        // 验证验证码是否正确，并实时在页面进行提示
+          $('#id_captcha_1').blur(function(){
+              var $this = $(this);
+              var key = $('#id_captcha_0').val();
+              var code = $(this).val();
+
+              $.getJSON('{% url 'user:valide_code' %}',{key:key,code:code},function(data){
+                    console.log(data);
+                    var x=document.getElementById('result');
+                  if(data.status==1){
+                    $this.after("<div id='result'>验证码正确</div>")
+                       x.remove(x);
+                  }else{
+                    $this.after("<div id='result'>验证码错误</div>")
+                       x.remove(x);
+                  }
+
+
+
+              })
+          })
+      });
+    </script>
+{% endblock %}
+

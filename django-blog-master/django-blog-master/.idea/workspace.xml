@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4836a56b-0331-42c5-a78b-cd6906ccd28e" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="blog@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="blog@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1WYWEvs5gzunFMvn9dooDlYCcGu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\blog\alone_blog" />
+      <recent name="D:\blog\alone_blog\apps" />
+      <recent name="D:\blog\alone_blog\templates" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\blog\alone_blog\static\images" />
+      <recent name="D:\blog\alone_blog\templates\article" />
+      <recent name="D:\blog\alone_blog\user" />
+      <recent name="D:\blog\alone_blog" />
+      <recent name="D:\blog\alone_blog\article" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="alone_blog" type="Python.DjangoServer" factoryName="Django server">
+      <module name="alone_blog" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4836a56b-0331-42c5-a78b-cd6906ccd28e" name="Default Changelist" comment="" />
+      <created>1579326901125</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1579326901125</updated>
+      <workItem from="1579326908587" duration="44801000" />
+      <workItem from="1579429101586" duration="1159000" />
+      <workItem from="1579495086457" duration="21776000" />
+      <workItem from="1579583068620" duration="18224000" />
+      <workItem from="1579666853330" duration="1572000" />
+      <workItem from="1579672112978" duration="92000" />
+      <workItem from="1579672210503" duration="46784000" />
+      <workItem from="1579771787165" duration="20312000" />
+      <workItem from="1579831812534" duration="10526000" />
+      <workItem from="1579843615686" duration="3612000" />
+      <workItem from="1579847244322" duration="467000" />
+      <workItem from="1579847824809" duration="926000" />
+      <workItem from="1579848997813" duration="414000" />
+      <workItem from="1579849451396" duration="53000" />
+      <workItem from="1579849696783" duration="132000" />
+      <workItem from="1579853404422" duration="1337000" />
+      <workItem from="1579855032539" duration="16000" />
+      <workItem from="1579857972882" duration="589000" />
+      <workItem from="1579858825399" duration="7454000" />
+      <workItem from="1579912346382" duration="14283000" />
+      <workItem from="1596679303223" duration="11909000" />
+      <workItem from="1596760813493" duration="7539000" />
+      <workItem from="1596772454315" duration="2794000" />
+      <workItem from="1596786017311" duration="127000" />
+      <workItem from="1596799247819" duration="287000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="121" y="41" key="#Deployment" timestamp="1596771903656">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="121" y="41" key="#Deployment/0.0.1536.824@0.0.1536.824" timestamp="1596771903656" />
+    <state x="410" y="52" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596772496229">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="410" y="52" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1596772496229" />
+    <state x="863" y="156" key="FileChooserDialogImpl" timestamp="1596786133316">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="863" y="156" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1596786133316" />
+    <state x="272" y="57" key="SettingsEditor" timestamp="1596781009607">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="272" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1596781009607" />
+    <state x="479" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1596800343762">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="479" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1596800343762" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/article/urls.py</url>
+          <line>6</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/xadmin/plugins/auth.py</url>
+          <line>1</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/xadmin/plugins/bookmark.py</url>
+          <line>1</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
